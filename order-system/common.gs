@@ -65,8 +65,9 @@ function getOrder(orderId) {
 
   const order = {
     orderTime: orders[0][OrderSheetHeaders.OrderTime - 1],
-    address: orders[0][OrderSheetHeaders.Address - 1],
     customer: orders[0][OrderSheetHeaders.Customer - 1],
+    phone1: orders[0][OrderSheetHeaders.Phone1 - 1],
+    phone2: orders[0][OrderSheetHeaders.Phone2 - 1],
     email: orders[0][OrderSheetHeaders.Email - 1],
     amount: orders[0][OrderSheetHeaders.Amount - 1],
     soup: orders[0][OrderSheetHeaders.Soup - 1],
@@ -101,8 +102,8 @@ function createOrderMessage(order) {
   message += `\n\n
   注文No：${order.orderId}
   受付日時：${orderTime.toLocaleString("ja-JP")}
-  お届け先：${order.address}
   お名前：${order.customer}
+  電話番号：${order.phone1} (${order.phone2})
   Email：${order.email}`;
 
   if (orderedMenuList.length > 0) {
@@ -113,11 +114,17 @@ function createOrderMessage(order) {
   }
 
   message += `\n\n麺の量：${order.amount}`;
-  message += `\n\nスープの塩度：${order.soup}`;
-  message += `\n\n麺の種類：${order.kind}`;
+  message += `\nスープの塩度：${order.soup}`;
+  message += `\n麺の種類：${order.kind}`;
 
   if (order.comment.length > 0) {
     message += `\n\nその他：${order.comment}`;
+  }
+
+  if (order.phone1 != order.phone2) {
+    message += `\n＊＊＊＊＊＊＊＊＊＊＊＊`;
+    message += `\n\n【電話番号を確認してください】：${order.phone1} (${order.phone2})`;
+    message += `\n＊＊＊＊＊＊＊＊＊＊＊＊`;
   }
 
   return message;
