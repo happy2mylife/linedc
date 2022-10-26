@@ -68,6 +68,9 @@ function getOrder(orderId) {
     address: orders[0][OrderSheetHeaders.Address - 1],
     customer: orders[0][OrderSheetHeaders.Customer - 1],
     email: orders[0][OrderSheetHeaders.Email - 1],
+    amount: orders[0][OrderSheetHeaders.Amount - 1],
+    soup: orders[0][OrderSheetHeaders.Soup - 1],
+    kind: orders[0][OrderSheetHeaders.Kind - 1],
     comment: orders[0][OrderSheetHeaders.Comment - 1],
     ordered: orders[0][OrderSheetHeaders.Ordered - 1],
     delivering: orders[0][OrderSheetHeaders.Delivering - 1],
@@ -108,6 +111,10 @@ function createOrderMessage(order) {
       message += `\n\n${menu.name}: ${menu.num}`;
     });
   }
+
+  message += `\n\n麺の量：${order.amount}`;
+  message += `\n\nスープの塩度：${order.soup}`;
+  message += `\n\n麺の種類：${order.kind}`;
 
   if (order.comment.length > 0) {
     message += `\n\nその他：${order.comment}`;
