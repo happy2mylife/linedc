@@ -79,11 +79,6 @@ function createOperationButtons(orderId) {
           label: Operation.Delivering,
           data: `${Operation.Delivering},${orderId}`,
         },
-        {
-          type: "postback",
-          label: Operation.Delivered,
-          data: `${Operation.Delivered},${orderId}`,
-        },
       ],
     },
   };

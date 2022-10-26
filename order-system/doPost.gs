@@ -61,7 +61,7 @@ function doOperation(replyToken, postBackData) {
     const operationButtons = createOperationButtons(postBackData.orderId);
     replyToUser(
       replyToken,
-      `${order.email}に、オーダー完了メールを送信しました。`,
+      `${order.email}に、\n受付完了メールを送信しました。`,
       operationButtons
     );
   } else if (postBackData.operation == Operation.Delivering) {
@@ -74,7 +74,7 @@ function doOperation(replyToken, postBackData) {
     const operationButtons = createOperationButtons(postBackData.orderId);
     replyToUser(
       replyToken,
-      `${order.email}に、出発メールを送信しました。`,
+      `${order.email}に、\n準備完了メールを送信しました。`,
       operationButtons
     );
   } else if (postBackData.operation == Operation.Delivered) {

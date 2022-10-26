@@ -28,8 +28,7 @@ const Shop = {
 // オーダー操作種別
 const Operation = {
   OrderAccept: "受付完了",
-  Delivering: "配達中",
-  Delivered: "配達済み",
+  Delivering: "準備完了",
 };
 
 createOrderClmHeader();
@@ -122,8 +121,8 @@ function createOrderMessage(order) {
   }
 
   if (order.phone1 != order.phone2) {
-    message += `\n＊＊＊＊＊＊＊＊＊＊＊＊`;
-    message += `\n\n【電話番号を確認してください】：${order.phone1} (${order.phone2})`;
+    message += `\n\n\n\n＊＊＊＊＊＊＊＊＊＊＊＊`;
+    message += `\n【電話番号を確認してください】：${order.phone1} (${order.phone2})`;
     message += `\n＊＊＊＊＊＊＊＊＊＊＊＊`;
   }
 
