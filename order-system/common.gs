@@ -112,9 +112,10 @@ function createOrderMessage(order) {
     });
   }
 
-  message += `\n\n麺の量：${order.amount}`;
-  message += `\nスープの塩度：${order.soup}`;
-  message += `\n麺の種類：${order.kind}`;
+  message += `\n`;
+  message += `\n細麵或粗麵：${order.kind}`;
+  message += `\n拉麵加麵或咖哩飯/定食加飯（免費）：${order.amount}`;
+  message += `\n鹹度：${order.soup}`;
 
   if (order.comment.length > 0) {
     message += `\n\nその他：${order.comment}`;
