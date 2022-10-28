@@ -100,13 +100,13 @@ function createOrderMessage(order) {
 
   message += `\n\n
   注文No：${order.orderId}
-  受付日時：${orderTime.toLocaleString("ja-JP")}
-  お名前：${order.customer}
-  電話番号：${order.phone1} (${order.phone2})
+  受付日時：${orderTime.toLocaleString("zh-CN")}
+  名字：${order.customer}
+  手機號碼：${order.phone1} (${order.phone2})
   Email：${order.email}`;
 
   if (orderedMenuList.length > 0) {
-    message += `\n\n**注文内容**`;
+    message += `\n\n**點餐內容**`;
     orderedMenuList.forEach((menu) => {
       message += `\n\n${menu.name}: ${menu.num}`;
     });
@@ -118,12 +118,12 @@ function createOrderMessage(order) {
   message += `\n鹹度：${order.soup}`;
 
   if (order.comment.length > 0) {
-    message += `\n\nその他：${order.comment}`;
+    message += `\n\n其他/詳細需求：${order.comment}`;
   }
 
   if (order.phone1 != order.phone2) {
     message += `\n\n\n\n＊＊＊＊＊＊＊＊＊＊＊＊`;
-    message += `\n【電話番号を確認してください】：${order.phone1} (${order.phone2})`;
+    message += `\n【請確認手機號碼】：${order.phone1} (${order.phone2})`;
     message += `\n＊＊＊＊＊＊＊＊＊＊＊＊`;
   }
 
